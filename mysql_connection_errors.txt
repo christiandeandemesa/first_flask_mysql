@@ -1,0 +1,11 @@
+1. Added quotes around query in the executable command. Received a TypeError 'bool' is not iterable.
+I'm assuming because the query is called as a parameter and variable in the def query_db method wherein the MySQLConnection class has an autocommit of True, changing query from a variable into a string is messing with the boolean.
+
+2. Typed fdfdfd inside self.connection.close(). Received name 'fdfdfd' is not defined. 
+I added a parameter to an empty chaining function, and what I added was a string that was not defined anywhere else.
+
+3. Changed import to pymysql.cursor. Received ModuleNotFoundError: No module name 'pymysql.cursor'.
+Apparently I cannot use cursor when importing the database into mysqlconnection.py because cursors is the object we use to interact with the database.
+
+4. Removed  as cursor from with self.connection.cursor() as cursor:. Recieved a TypeError 'bool' is not iterable.
+Same as 1. above in that I'm messing with the autocommit is True because def query_db can return a False if somehting with CRUD from the database goes wrong.
